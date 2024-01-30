@@ -1,48 +1,19 @@
 import java.util.Scanner;
-
-public class SingleElementInSortedArray {
-
+public class SingleElementSortedArray {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Input sorted array
-        String[] inputArray = scanner.nextLine().split(" ");
-        int[] nums = new int[inputArray.length];
-        for (int i = 0; i < inputArray.length; i++) {
-            nums[i] = Integer.parseInt(inputArray[i]);
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]= sc.nextInt();
         }
-
-        // Find the single element
-        int result = findSingleElement(nums);
-        System.out.println(result);
-
-        scanner.close();
-    }
-
-    static int findSingleElement(int[] nums) {
-        int left = 0;
-        int right = nums.length - 1;
-
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-
-            // Check if the single element is on the left or right side
-            if (mid % 2 == 1) {
-                mid--; // Ensure we have an even index
-            }
-
-            // If the elements at mid and mid+1 are not equal, move left
-            if (nums[mid] != nums[mid + 1]) {
-                right = mid;
-            } else {
-                left = mid + 2;
-            }
+        int ans=0;
+        for(int i=0;i<n;i++){
+            ans=ans ^ arr[i];
         }
-
-        return nums[left];
+        System.out.println(ans);
     }
 }
-
 /*
 Question 9:  Find a single element appearing once in a sorted array
  Problem Statement: Input a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once. Print the single element that appears only once.
