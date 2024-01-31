@@ -29,4 +29,18 @@ class KthLargestInArray {
 
         return minHeap.peek();
     }
+    /*
+    static int findKthSmallest(int[] nums, int k) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+
+        for (int num : nums) {
+            maxHeap.add(num);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+
+        return maxHeap.peek();
+    }
+    */
 }
