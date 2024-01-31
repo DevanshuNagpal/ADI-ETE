@@ -59,5 +59,29 @@ public class PatternMatching {
 }
 
 /*
-
+Question 2: Pattern Matching
+Problem Statement
+Input a pattern P and String S. Program must return “True” if S (String) follows the same pattern P, otherwise return “False”. Here follows means a full match, such that there is a one to one correspondence between a character/letter in pattern and a non-empty word in the String S.
+Input Format
+Pattern: String, can be a combination of alphabets or numbers.
+String: String, a non-empty word that can be a combination of alphabets or numbers. Include space among each non-empty word.
+First input Pattern and then String in the next line and they must not be same.
+Output Format
+Character: For each test case, return true or false.
+Constraints
+A string of length between 1 to 1000.
+Example
+Sample Input 1
+abba
+dog cat cat dog
+Sample Output 1
+true
+Sample Input 2
+abba
+dog cat cat fish
+Sample Output 2
+false
+Sample test case Explanation
+In the first test case, dog is following a, cat is following b, so there is a full match. Output “true”
+In the second test case dog is following a, cat is following b but fish is a mismatch. Not a full match, so output “false”
  */
