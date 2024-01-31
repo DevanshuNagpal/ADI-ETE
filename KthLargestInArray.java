@@ -44,3 +44,34 @@ class KthLargestInArray {
     }
     */
 }
+/*
+Question 3: Finding the Kth Largest Element in Array
+Problem Statement
+Given an integer array nums and an integer k, the task is to find and return the kth largest element in the array. It's essential to note that the element in question is the kth largest one in the sorted order, not necessarily the kth distinct element. The challenge is to solve this problem without utilizing sorting algorithms.
+Input Format
+Length/Size of array : Integer
+Elements of array: Integer
+Value of K: Integer
+Output Format
+Kth Largest Element in Array : Integer
+Constraints
+Do not use any sorting technique.
+Example
+Sample Input 1
+6
+3 2 1 5 6 4
+2
+Sample Output 1
+5
+Sample Input 2
+9
+3 2 3 1 2 4 5 5 6
+4
+ 
+Sample Output 2
+4
+Sample test case Explanation
+In the first test case, 6 represent array size, 3 2 1 5 6 4 are array elements, then input K that is 2 to find the kth largest element in the array.
+In the first test case, 9 represent array size, 3 2 3 1 2 4 5 5 6 are array elements, then input K that is 4 to find the kth largest element in the array.
+
+    */
