@@ -42,78 +42,79 @@ public class MaximizingJewelryValue {
     }
 }
 
+/* Fractional Knapsack
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
 
-//import java.util.Scanner;
-//
-//public class MaximizingJewelryValue {
-//
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        // Input: Weight limit
-//        int weightLimit = scanner.nextInt();
-//
-//        // Output: Maximum value of jewelry that Arjun can carry
-//        double result = maximizeJewelryValue(weightLimit);
-//        System.out.println(result);
-//
-//        scanner.close();
-//    }
-//
-//    static double maximizeJewelryValue(int weightLimit) {
-//        // Jewelry collections
-//        int[] weights = {10, 20, 30};
-//        int[] values = {60, 100, 120};
-//
-//        int n = weights.length;
-//
-//        // Calculate value-to-weight ratio for each jewelry item
-//        double[] ratios = new double[n];
-//        for (int i = 0; i < n; i++) {
-//            ratios[i] = (double) values[i] / weights[i];
-//        }
-//
-//        // Sort items based on value-to-weight ratio in descending order
-//        sortItems(ratios, weights, values);
-//
-//        double maxValue = 0.0;
-//
-//        // Fill the knapsack with items based on the sorted order
-//        for (int i = 0; i < n && weightLimit > 0; i++) {
-//            int currentWeight = Math.min(weights[i], weightLimit);
-//            maxValue += currentWeight * ratios[i];
-//            weightLimit -= currentWeight;
-//        }
-//
-//        return maxValue;
-//    }
-//
-//    static void sortItems(double[] ratios, int[] weights, int[] values) {
-//        int n = ratios.length;
-//
-//        for (int i = 0; i < n - 1; i++) {
-//            for (int j = 0; j < n - i - 1; j++) {
-//                if (ratios[j] < ratios[j + 1]) {
-//                    // Swap ratios
-//                    double tempRatio = ratios[j];
-//                    ratios[j] = ratios[j + 1];
-//                    ratios[j + 1] = tempRatio;
-//
-//                    // Swap weights
-//                    int tempWeight = weights[j];
-//                    weights[j] = weights[j + 1];
-//                    weights[j + 1] = tempWeight;
-//
-//                    // Swap values
-//                    int tempValue = values[j];
-//                    values[j] = values[j + 1];
-//                    values[j + 1] = tempValue;
-//                }
-//            }
-//        }
-//    }
-//}
+// Class to represent each jewelry item
+class Jewelry implements Comparable<Jewelry> {
+    int value;
+    int weight;
+    double valueToWeight;
 
+    // Constructor to initialize the jewelry item
+    public Jewelry(int value, int weight) {
+        this.value = value;
+        this.weight = weight;
+        // Calculate the value-to-weight ratio for sorting
+        this.valueToWeight = (double) value / weight;
+    }
+
+    // Compare method to sort in descending order of value-to-weight ratio
+    @Override
+    public int compareTo(Jewelry other) {
+        return Double.compare(other.valueToWeight, this.valueToWeight);
+    }
+}
+
+public class FractionalKnapsack {
+
+    // Method to maximize the total value of jewelry within weight limit
+    public static double maximizeValue(Jewelry[] jewelry, int weightLimit) {
+        // Sort the jewelry items based on value-to-weight ratio
+        Arrays.sort(jewelry);
+
+        double totalValue = 0.0;
+        int remainingWeight = weightLimit;
+
+        // Iterate through sorted items and fill the knapsack
+        for (Jewelry item : jewelry) {
+            if (remainingWeight >= item.weight) {
+                // Take the whole item
+                totalValue += item.value;
+                remainingWeight -= item.weight;
+            } else {
+                // Take a fraction of the item to fill the remaining space
+                totalValue += (item.valueToWeight * remainingWeight);
+                break; // The knapsack is full
+            }
+        }
+
+        return totalValue;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the weight limit
+        int weightLimit = scanner.nextInt();
+
+        // Define the jewelry items
+        Jewelry[] jewelry = {
+                new Jewelry(60, 10),
+                new Jewelry(100, 20),
+                new Jewelry(120, 30)
+        };
+
+        // Output the maximum value of jewelry Arjun can carry
+        System.out.println(maximizeValue(jewelry, weightLimit));
+
+        scanner.close();
+    }
+}
+
+*/
 /*
 Question 12: Maximizing Jewelry Value
 
